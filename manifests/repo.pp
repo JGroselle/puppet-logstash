@@ -32,10 +32,6 @@ class logstash::repo {
         key_server  => 'hkp://ha.pool.sks-keyservers.net:80',
         include_src => false,
         include_deb => true,
-        notify      => [
-          Class['apt::update'],
-          Exec['apt_update'],
-        ],
       }
     }
     'RedHat': {
