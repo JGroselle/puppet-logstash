@@ -11,7 +11,7 @@
 class logstash::repo {
   $version = $logstash::repo_version
   $repo_name = "elastic-${version}"
-  $url_root = "https://artifacts.elastic.co/packages/${version}"
+  $url_root = "http://artifacts.elastic.co/packages/${version}"
   $gpg_key_url = 'https://artifacts.elastic.co/GPG-KEY-elasticsearch'
   $gpg_key_id = '46095ACC8548582C1A2699A9D27D666CD88E42B4'
 
