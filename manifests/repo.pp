@@ -25,17 +25,14 @@ class logstash::repo {
       include apt
 
       apt::source { $repo_name:
-        location => "${url_root}/apt",
-        release  => 'stable',
-        repos    => 'main',
-        key      => {
-          'id'     => $gpg_key_id,
-          'source' => $gpg_key_url,
-        },
-        include  => {
-          'src' => false,
-        },
-        notify   => [
+        location    => "${url_root}/apt",
+        release     => 'stable',
+        repos       => 'main',
+        key         => $gpg_key_id,
+        key_server  => 'hkp://ha.pool.sks-keyservers.net:80',
+        include_src => false,
+        include_deb => true,
+        notify      => [
           Class['apt::update'],
           Exec['apt_update'],
         ],
